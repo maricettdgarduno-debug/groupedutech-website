@@ -1,0 +1,121 @@
+"use client";
+
+import Link from "next/link";
+import { Zap, Mail, Phone, MapPin, Globe } from "lucide-react";
+
+const services = [
+  { label: "Automatizaciones", href: "/servicios#automatizaciones" },
+  { label: "Desarrollo Web", href: "/servicios#web" },
+  { label: "Formación en IA", href: "/formacion" },
+  { label: "Marketing Digital", href: "/marketing" },
+  { label: "Imagen Corporativa", href: "/marketing#imagen" },
+];
+
+const company = [
+  { label: "Nosotros", href: "/nosotros" },
+  { label: "Servicios", href: "/servicios" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contacto", href: "/contacto" },
+];
+
+export function Footer() {
+  return (
+    <footer className="bg-[#0D1526] border-t border-white/5 pt-16 pb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+          {/* Brand */}
+          <div className="lg:col-span-1">
+            <Link href="/" className="flex items-center gap-2 mb-4">
+              <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-[#00D4FF] to-[#7C3AED] flex items-center justify-center">
+                <Zap className="w-5 h-5 text-white" />
+              </div>
+              <span className="text-xl font-bold">
+                <span className="text-white">Groupe</span>
+                <span className="gradient-text">Edu</span>
+                <span className="text-white">Tech</span>
+              </span>
+            </Link>
+            <p className="text-gray-400 text-sm leading-relaxed mb-5">
+              Transformamos negocios con tecnología, educamos con IA y potenciamos tu marca en el mundo digital.
+            </p>
+            <div className="flex flex-col gap-2 text-sm text-gray-400">
+              <a href="mailto:info@groupedutech.com" className="flex items-center gap-2 hover:text-[#00D4FF] transition-colors">
+                <Mail className="w-4 h-4 shrink-0" /> info@groupedutech.com
+              </a>
+              <a href="tel:+58" className="flex items-center gap-2 hover:text-[#00D4FF] transition-colors">
+                <Phone className="w-4 h-4 shrink-0" /> Venezuela
+              </a>
+              <span className="flex items-center gap-2">
+                <MapPin className="w-4 h-4 shrink-0" /> Venezuela
+              </span>
+              <a href="https://groupedutech.com" className="flex items-center gap-2 hover:text-[#00D4FF] transition-colors">
+                <Globe className="w-4 h-4 shrink-0" /> groupedutech.com
+              </a>
+            </div>
+          </div>
+
+          {/* Servicios */}
+          <div>
+            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Servicios</h4>
+            <ul className="space-y-2.5">
+              {services.map((s) => (
+                <li key={s.href}>
+                  <Link href={s.href} className="text-gray-400 text-sm hover:text-[#00D4FF] transition-colors">
+                    {s.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Empresa */}
+          <div>
+            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Empresa</h4>
+            <ul className="space-y-2.5">
+              {company.map((c) => (
+                <li key={c.href}>
+                  <Link href={c.href} className="text-gray-400 text-sm hover:text-[#00D4FF] transition-colors">
+                    {c.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Newsletter */}
+          <div>
+            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Mantente Actualizado</h4>
+            <p className="text-gray-400 text-sm mb-4">
+              Recibe tips de IA, tecnología y marketing directamente en tu correo.
+            </p>
+            <form className="flex flex-col gap-3" onSubmit={(e) => e.preventDefault()}>
+              <input
+                type="email"
+                placeholder="tu@correo.com"
+                className="bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00D4FF]/50 transition-colors"
+              />
+              <button className="btn-primary text-sm py-2.5 text-center">
+                Suscribirme
+              </button>
+            </form>
+          </div>
+        </div>
+
+        {/* Bottom */}
+        <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-gray-500 text-sm">
+            © {new Date().getFullYear()} GroupEduTech. Todos los derechos reservados.
+          </p>
+          <div className="flex items-center gap-5">
+            <Link href="/privacidad" className="text-gray-500 text-sm hover:text-gray-300 transition-colors">
+              Privacidad
+            </Link>
+            <Link href="/terminos" className="text-gray-500 text-sm hover:text-gray-300 transition-colors">
+              Términos
+            </Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+}
