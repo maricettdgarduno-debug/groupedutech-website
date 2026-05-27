@@ -30,7 +30,7 @@ export function Footer() {
                 <Zap className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-bold">
-                <span className="text-white">Groupe</span>
+                <span className="text-white">Group</span>
                 <span className="gradient-text">Edu</span>
                 <span className="text-white">Tech</span>
               </span>
@@ -39,8 +39,8 @@ export function Footer() {
               Transformamos negocios con tecnología, educamos con IA y potenciamos tu marca en el mundo digital.
             </p>
             <div className="flex flex-col gap-2 text-sm text-gray-400">
-              <a href="mailto:info@groupedutech.com" className="flex items-center gap-2 hover:text-[#00D4FF] transition-colors">
-                <Mail className="w-4 h-4 shrink-0" /> info@groupedutech.com
+              <a href="mailto:info@Groupdutech.com" className="flex items-center gap-2 hover:text-[#00D4FF] transition-colors">
+                <Mail className="w-4 h-4 shrink-0" /> info@Groupdutech.com
               </a>
               <a href="tel:+58" className="flex items-center gap-2 hover:text-[#00D4FF] transition-colors">
                 <Phone className="w-4 h-4 shrink-0" /> Venezuela
@@ -48,8 +48,8 @@ export function Footer() {
               <span className="flex items-center gap-2">
                 <MapPin className="w-4 h-4 shrink-0" /> Venezuela
               </span>
-              <a href="https://groupedutech.com" className="flex items-center gap-2 hover:text-[#00D4FF] transition-colors">
-                <Globe className="w-4 h-4 shrink-0" /> groupedutech.com
+              <a href="https://Groupdutech.com" className="flex items-center gap-2 hover:text-[#00D4FF] transition-colors">
+                <Globe className="w-4 h-4 shrink-0" /> Groupdutech.com
               </a>
             </div>
           </div>
@@ -104,7 +104,7 @@ export function Footer() {
         {/* Bottom */}
         <div className="border-t border-white/5 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} GroupEduTech. Todos los derechos reservados.
+            © {new Date().getFullYear()} GroupduTech. Todos los derechos reservados.
           </p>
           <div className="flex items-center gap-5">
             <Link href="/privacidad" className="text-gray-500 text-sm hover:text-gray-300 transition-colors">

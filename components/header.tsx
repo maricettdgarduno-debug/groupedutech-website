@@ -43,7 +43,7 @@ export function Header() {
               <Zap className="w-5 h-5 text-white" />
             </div>
             <span className="text-xl font-bold">
-              <span className="text-white">Groupe</span>
+              <span className="text-white">Group</span>
               <span className="gradient-text">Edu</span>
               <span className="text-white">Tech</span>
             </span>
