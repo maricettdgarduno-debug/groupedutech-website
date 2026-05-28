@@ -58,14 +58,14 @@ const testimonials = [
     rating: 5,
   },
   {
-    name: "Carlos Mendoza",
-    role: "Emprendedor Digital",
+    name: "Edgar Castro",
+    role: "Director de The Alliance Ministerio Hispano, USA",
     text: "El curso de IA para mi equipo fue excepcional. Ahora usamos herramientas de inteligencia artificial en nuestras operaciones diarias con total confianza.",
     rating: 5,
   },
   {
-    name: "Edgar Castro",
-    role: "Director de The Alliance Ministerio Hispano, USA",
+    name: "Carlos Mendoza",
+    role: "Emprendedor Digital",
     text: "Renovaron nuestra presencia digital completamente. El e-commerce y la estrategia de marketing superaron todas nuestras expectativas de ventas.",
     rating: 5,
   },
