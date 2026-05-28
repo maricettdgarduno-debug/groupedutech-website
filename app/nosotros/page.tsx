@@ -13,28 +13,36 @@ const fadeUp = {
 
 const team = [
   {
-    name: "Carlos Rodríguez",
-    role: "Director General & Automatizaciones",
-    bio: "Especialista en automatización de procesos y arquitectura de sistemas. Más de 5 años construyendo soluciones tecnológicas para el mercado venezolano.",
-    skills: ["n8n", "Make.com", "Python", "APIs"],
+    initials: "ML",
+    name: "Maricett Lira",
+    role: "CEO & Directora de Estrategia IA",
+    bio: "Estratega internacional y líder en formación de Inteligencia Artificial aplicada a negocios. Especialista en el diseño de narrativas de alto impacto y arquitectura de perfiles de alta autoridad, impulsando la reinvención profesional y operativa a través de múltiples LLMs.",
+    skills: ["Estrategia IA", "LLMs", "Liderazgo", "Narrativas de Impacto"],
+    gradient: "from-[#00D4FF] to-[#7C3AED]",
   },
   {
-    name: "Andrea Martínez",
-    role: "Directora de Desarrollo Web",
-    bio: "Desarrolladora Full Stack con experiencia en React, Next.js y plataformas e-commerce. Apasionada por la experiencia de usuario y el diseño.",
-    skills: ["React", "Next.js", "UX Design", "E-commerce"],
+    initials: "JCG",
+    name: "Juan Carlos Garduño",
+    role: "Director de Marketing & Estrategia Audiovisual",
+    bio: "Consultor en imagen corporativa, comunicación estratégica y videógrafo profesional. Como CEO de LeonMultimedia, lidera la creación de contenido audiovisual de alto impacto y el desarrollo de campañas de marketing digital orientadas al posicionamiento de marcas de prestigio.",
+    skills: ["Marketing", "Videografía", "Comunicación", "Contenido Premium"],
+    gradient: "from-[#7C3AED] to-[#EC4899]",
   },
   {
-    name: "Luis Vargas",
-    role: "Director de Formación IA",
-    bio: "Educador e investigador en Inteligencia Artificial. Diseña programas formativos adaptados a cada nivel y contexto venezolano.",
-    skills: ["Machine Learning", "LLMs", "Pedagogía", "Python"],
+    initials: "MR",
+    name: "Mariluz Rojas",
+    role: "Directora de Ventas & Relaciones Institucionales",
+    bio: "Abogada especialista en consultoría legal comercial y gestión de atención al cliente. Combina la precisión legal con la negociación estratégica para diseñar experiencias de atención personalizadas, garantizando acuerdos transparentes, sólidos y de largo plazo.",
+    skills: ["Ventas", "Consultoría Legal", "Customer Experience", "Negociación"],
+    gradient: "from-[#00FF94] to-[#00D4FF]",
   },
   {
-    name: "María Torres",
-    role: "Directora de Marketing Digital",
-    bio: "Estratega de marketing con visión creativa y analítica. Experta en branding, redes sociales y campañas de alto impacto.",
-    skills: ["Branding", "Meta Ads", "SEO", "Contenido"],
+    initials: "VL",
+    name: "Valentín León",
+    role: "Director de Desarrollo Web & E-commerce",
+    bio: "Desarrollador Full Stack y Sr. UI Engineer con trayectoria internacional en Thrive Market. Especialista en la arquitectura integral de plataformas e-commerce y el diseño de interfaces de usuario de alto rendimiento, fusionando una infraestructura backend sólida con experiencias visuales interactivas y escalables.",
+    skills: ["Full Stack", "UI Engineering", "E-commerce", "Escalabilidad"],
+    gradient: "from-[#F59E0B] to-[#00D4FF]",
   },
 ];
 
@@ -71,7 +79,7 @@ export default function NosotrosPage() {
               <span className="gradient-text">GroupEduTech</span>
             </h1>
             <p className="section-sub mx-auto">
-              Somos un grupo de venezolanos apasionados por la tecnología, la educación y la innovación, comprometidos con el progreso digital de Venezuela.
+              Somos un grupo de venezolanos apasionados por la tecnología, la educación y la innovación, comprometidos con el progreso digital de Venezuela y el mundo.
             </p>
           </motion.div>
         </div>
@@ -81,10 +89,7 @@ export default function NosotrosPage() {
       <section className="py-16 bg-[#0D1526]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <motion.div
-              {...fadeUp}
-              className="bg-[#060B18] border border-white/5 rounded-2xl p-8"
-            >
+            <motion.div {...fadeUp} className="bg-[#060B18] border border-white/5 rounded-2xl p-8">
               <div className="w-11 h-11 rounded-xl bg-[#00D4FF]/10 border border-[#00D4FF]/20 flex items-center justify-center mb-5">
                 <Target className="w-5 h-5 text-[#00D4FF]" />
               </div>
@@ -166,15 +171,15 @@ export default function NosotrosPage() {
                 transition={{ delay: i * 0.1 }}
                 className="bg-[#060B18] border border-white/5 rounded-2xl p-6 card-glow"
               >
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#00D4FF] to-[#7C3AED] flex items-center justify-center mb-4 text-xl font-bold text-white">
-                  {member.name.split(" ").map((n) => n[0]).join("")}
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${member.gradient} flex items-center justify-center mb-4 text-lg font-bold text-white shadow-lg`}>
+                  {member.initials}
                 </div>
                 <h4 className="font-bold text-white mb-0.5">{member.name}</h4>
-                <div className="text-[#00D4FF] text-xs mb-3">{member.role}</div>
+                <div className="text-[#00D4FF] text-xs mb-3 leading-snug">{member.role}</div>
                 <p className="text-gray-400 text-xs leading-relaxed mb-4">{member.bio}</p>
                 <div className="flex flex-wrap gap-1.5">
                   {member.skills.map((s) => (
-                    <span key={s} className="text-xs bg-white/5 text-gray-300 px-2 py-0.5 rounded-full">{s}</span>
+                    <span key={s} className="text-xs bg-white/5 text-gray-300 px-2 py-0.5 rounded-full border border-white/5">{s}</span>
                   ))}
                 </div>
               </motion.div>
