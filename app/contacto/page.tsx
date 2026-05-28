@@ -72,8 +72,9 @@ export default function ContactoPage() {
                 <h3 className="font-bold text-white text-lg mb-5">Información de Contacto</h3>
                 <div className="space-y-4">
                   {[
-                    { icon: Mail, label: "Email", val: "info@groupedutech.com", href: "mailto:info@groupedutech.com" },
-                    { icon: Phone, label: "WhatsApp", val: "+58 (Venezuela)", href: "https://wa.me/58" },
+                    { icon: Mail, label: "Email", val: "groupedutech.ve@gmail.com", href: "mailto:groupedutech.ve@gmail.com" },
+                    { icon: Phone, label: "Venezuela", val: "+58 (414) 633-0903", href: "https://wa.me/584146330903" },
+                    { icon: Phone, label: "USA", val: "+1 (661) 743-8491", href: "tel:+16617438491" },
                     { icon: MapPin, label: "Ubicación", val: "Venezuela", href: "#" },
                     { icon: Globe, label: "Web", val: "groupedutech.com", href: "https://groupedutech.com" },
                     { icon: Clock, label: "Horario", val: "Lun–Vie 8am–6pm VET", href: "#" },
