@@ -53,7 +53,7 @@ const stats = [
 const testimonials = [
   {
     name: "María González",
-    role: "Directora, TechStart VE",
+    role: "Directora de Escuela Cristiana 'Undeserved Grace' · Yuba City, CA",
     text: "GroupEduTech transformó nuestros procesos internos. Las automatizaciones que implementaron nos ahorraron 30 horas semanales. ¡Increíble equipo!",
     rating: 5,
   },
@@ -64,8 +64,8 @@ const testimonials = [
     rating: 5,
   },
   {
-    name: "Laura Sánchez",
-    role: "CEO, Moda Caracas",
+    name: "Edgar Castro",
+    role: "Director de The Alliance Ministerio Hispano, USA",
     text: "Renovaron nuestra presencia digital completamente. El e-commerce y la estrategia de marketing superaron todas nuestras expectativas de ventas.",
     rating: 5,
   },
