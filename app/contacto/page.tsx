@@ -26,6 +26,7 @@ export default function ContactoPage() {
   });
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -34,9 +35,33 @@ export default function ContactoPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1500));
-    setLoading(false);
-    setSent(true);
+    setError("");
+
+    try {
+      const response = await fetch("https://formspree.io/f/xpqnkbdy", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nombre: form.name,
+          email: form.email,
+          telefono: form.phone,
+          empresa: form.company,
+          servicio: form.service,
+          presupuesto: form.budget,
+          mensaje: form.message,
+        }),
+      });
+
+      if (response.ok) {
+        setSent(true);
+      } else {
+        setError("Hubo un problema al enviar. Intenta de nuevo.");
+      }
+    } catch {
+      setError("Error de conexión. Intenta de nuevo.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -75,7 +100,7 @@ export default function ContactoPage() {
                     { icon: Mail, label: "Email", val: "groupedutech.ve@gmail.com", href: "mailto:groupedutech.ve@gmail.com" },
                     { icon: Phone, label: "Venezuela", val: "+58 (414) 633-0903", href: "https://wa.me/584146330903" },
                     { icon: Phone, label: "USA", val: "+1 (661) 743-8491", href: "tel:+16617438491" },
-                    { icon: MapPin, label: "Ubicación", val: "Venezuela", href: "#" },
+                    { icon: MapPin, label: "Ubicación", val: "Venezuela / USA", href: "#" },
                     { icon: Globe, label: "Web", val: "groupedutech.com", href: "https://groupedutech.com" },
                     { icon: Clock, label: "Horario", val: "Lun–Vie 8am–6pm VET", href: "#" },
                   ].map((item) => (
@@ -127,7 +152,7 @@ export default function ContactoPage() {
                     </div>
                     <h3 className="text-2xl font-bold text-white mb-3">¡Mensaje Enviado!</h3>
                     <p className="text-gray-400 max-w-md mx-auto">
-                      Gracias por contactarnos. Un miembro de nuestro equipo se comunicará contigo en las próximas 24 horas.
+                      Gracias por contactarnos. Un miembro de nuestro equipo se comunicará contigo en las próximas 24 horas a <strong className="text-white">{form.email}</strong>
                     </p>
                   </div>
                 ) : (
@@ -200,11 +225,11 @@ export default function ContactoPage() {
                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[#00D4FF]/50 transition-colors"
                       >
                         <option value="" className="bg-[#0D1526]">Selecciona un rango</option>
-                        <option value="<300" className="bg-[#0D1526]">Menos de $300</option>
-                        <option value="300-1000" className="bg-[#0D1526]">$300 – $1,000</option>
-                        <option value="1000-5000" className="bg-[#0D1526]">$1,000 – $5,000</option>
-                        <option value=">5000" className="bg-[#0D1526]">Más de $5,000</option>
-                        <option value="conversar" className="bg-[#0D1526]">Prefiero conversarlo</option>
+                        <option value="Menos de $300" className="bg-[#0D1526]">Menos de $300</option>
+                        <option value="$300 – $1,000" className="bg-[#0D1526]">$300 – $1,000</option>
+                        <option value="$1,000 – $5,000" className="bg-[#0D1526]">$1,000 – $5,000</option>
+                        <option value="Más de $5,000" className="bg-[#0D1526]">Más de $5,000</option>
+                        <option value="Prefiero conversarlo" className="bg-[#0D1526]">Prefiero conversarlo</option>
                       </select>
                     </div>
 
@@ -217,6 +242,12 @@ export default function ContactoPage() {
                         className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-[#00D4FF]/50 transition-colors resize-none"
                       />
                     </div>
+
+                    {error && (
+                      <div className="bg-red-500/10 border border-red-500/20 rounded-xl px-4 py-3 text-red-400 text-sm">
+                        {error}
+                      </div>
+                    )}
 
                     <button
                       type="submit"
